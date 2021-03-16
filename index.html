@@ -1,1 +1,88 @@
-<p>Hello</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Bootstrap 5 Admin &amp; Dashboard Template">
+	<meta name="author" content="Bootlab">
+
+	<title></title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+	<!-- Choose your prefered color scheme -->
+	<link href="light.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+	<!-- <link href="css/dark.css" rel="stylesheet"> -->
+    <style>
+        .progress-bar {
+            background-color: #a11846;
+        }
+    </style>
+</head>
+<body>
+    <main class="content">
+        <div class="container-fluid p-0">
+
+            <h1 class="h3 mb-3">Risk Level</h1>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Malware breakdown</h5>
+                        </div>
+                        <div class="card-body" style="height:500px">
+                            <canvas id="chartjs-bar"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+		document.addEventListener("DOMContentLoaded", function() {
+			// Bar chart
+			new Chart(document.getElementById("chartjs-bar"), {
+				type: "bar",
+				data: {
+					labels: ["0-1", "1-2", "2-3", "3-4", "4-5", "5-6", "6-7", "7-8", "8-9", "9-10"],
+					datasets: [{
+						label: "Malware Distribution",
+						backgroundColor: "#e28743",
+						borderColor: "#e28743",
+						hoverBackgroundColor: "#e28743",
+						hoverBorderColor: "#e28743",
+                        data: [6,436,734,495,94,42,7,6,5],
+						barPercentage: 1,
+						categoryPercentage: .5
+					}]
+				},
+				options: {
+					maintainAspectRatio: false,
+					legend: {
+						display: true
+					},
+					scales: {
+						yAxes: [{
+							gridLines: {
+								display: false
+							},
+							stacked: false,
+							ticks: {
+								stepSize: 20
+							}
+						}],
+						xAxes: [{
+							stacked: false,
+							gridLines: {
+								color: "transparent"
+							}
+						}]
+					}
+				}
+			});
+		});
+	</script>
+</body>
